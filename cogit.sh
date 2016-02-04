@@ -17,7 +17,9 @@ function cogit() {
     fi
 
     # use an alias, instead of a function, to avoid having to worry about expansion
-    eval "alias $name=git\ --git-dir=$PWD/$dir\ --work-tree=$PWD"
+    source /dev/stdin <<- EOF_TOP
+	alias ${name}="git --git-dir=$PWD/$dir --work-tree=$PWD"
+	EOF_TOP
 
     source /dev/stdin <<- EOF_TOP
 	function ${name}-chain {
