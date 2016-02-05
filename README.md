@@ -64,6 +64,10 @@ ln -s ../../.gitx-data/exlude .gitx/info
 gitx add .gitx-data/exclude
 ```
 
+## gitk
+this script creates a global git alias for gitk (unless the alias already exists), so to launch gitk with the correct `$GIT_DIR`:
+- `gitx gitk`
+
 # other uses
 any time you'd like to use a `GIT_DIR` other than the default, this tool can simplify usage.
 eg, to put your home directory under version control

@@ -1,17 +1,19 @@
 # copyright 2016 nqzero, licensed under the MIT license
 
-# cogit $name $dir
 # cooperative-git-repositories
+# defines
+#   cogit: function to create aliases for $GIT_DIR
+#   git gitk: alias for running gitk with $GIT_DIR
+
+# cogit $name $dir
 # set up an alternative git system, ie one based in $dir instead .git
 # $dir defaults to .$name
 # defines:
 #   alias $name=git --git-dir=$PWD/$dir --work-tree=$PWD
-#   alias ${name}k
 #   function $name-chain: chain the corepo with the parent (default .git in the current directory)
 # eg,
 #   cogit gitx
 #   gitx pull
-#   gitxk
 function cogit() {
     name=$1
     dir=${2:-.$name}
@@ -26,10 +28,6 @@ function cogit() {
     # use an alias, instead of a function, to avoid having to worry about expansion
     source /dev/stdin <<- EOF_TOP
 	alias ${name}="git --git-dir=$PWD/$dir --work-tree=$PWD"
-	EOF_TOP
-
-    source /dev/stdin <<- EOF_TOP
-	alias ${name}k="GIT_DIR=$PWD/$dir gitk"
 	EOF_TOP
 
     source /dev/stdin <<- EOF_TOP
@@ -69,3 +67,9 @@ function .cogit-chain {
     chmod u+x $data/pre-commit
     ln -s ../../$data/pre-commit $dir/hooks
 }
+
+# set up a git alias so 'gitx gitk' will see the $GIT_DIR
+if [ -z "$(git config alias.gitk)" ]; then
+    git config --global alias.gitk '!gitk'
+fi
+
