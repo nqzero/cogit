@@ -6,7 +6,7 @@
 # $dir defaults to .$name
 # defines:
 #   alias $name=git --git-dir=$PWD/$dir --work-tree=$PWD
-#   alian ${name}k
+#   alias ${name}k
 #   function $name-chain: chain the corepo with the parent (default .git in the current directory)
 # eg,
 #   cogit gitx
