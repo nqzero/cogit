@@ -23,6 +23,10 @@ function cogit() {
 	EOF_TOP
 
     source /dev/stdin <<- EOF_TOP
+	alias ${name}k="GIT_DIR=$PWD/$dir gitk"
+	EOF_TOP
+
+    source /dev/stdin <<- EOF_TOP
 	function ${name}-chain {
 	    .cogit-chain $name $dir
 	}
