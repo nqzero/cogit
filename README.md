@@ -25,7 +25,7 @@ it's equivalent to using `--git-dir` arguments
 ## usage - creating a new repo
 ```
 # create newrepo on github
-source cogit.sh # possibly in .bash_profile
+source cogit.sh # possibly in .bashrc
 cd ~/working/dir
 cogit gitx
 gitx init
