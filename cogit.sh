@@ -6,7 +6,12 @@
 # $dir defaults to .$name
 # defines:
 #   alias $name=git --git-dir=$PWD/$dir --work-tree=$PWD
+#   alian ${name}k
 #   function $name-chain: chain the corepo with the parent (default .git in the current directory)
+# eg,
+#   cogit gitx
+#   gitx pull
+#   gitxk
 function cogit() {
     name=$1
     dir=${2:-.$name}
@@ -14,6 +19,7 @@ function cogit() {
 	echo "usage: cogit aliasName [gitDirectory]"
 	echo "  gitDirectory defaults to .aliasName"
 	echo "  eg, 'cogit gitx' creates an alias gitx that uses .gitx as the git_dir"
+	echo "  uses the current directory (at time of alias creation) as the working directory"
 	return
     fi
 
