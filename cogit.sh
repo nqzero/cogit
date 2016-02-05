@@ -1,3 +1,4 @@
+# copyright 2016 nqzero, licensed under the MIT license
 
 # cogit $name $dir
 # cooperative-git-repositories
