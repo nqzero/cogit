@@ -41,7 +41,7 @@ gitx push
 so explicitly set the git directory
 ```
 cogit gitx
-git clone -n git@github.com/username/oldrepo.git .gitx
+git clone -n --bare git@github.com:username/oldrepo.git .gitx
 gitx checkout -- .
 ```
 
